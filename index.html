@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./pico-main/css/pico.blue.min.css">
+  <script src="./tailwind.js"></script>
+  <script src="./index.js" defer></script>
+</head>
+<body>
+  <div class="flex justify-center">
+    <div class="w-3/4 p-5">
+      <h1>Burning ship fractal generator</h1>
+      <canvas id="canvas" class="w-full aspect-3/2 m-4 [image-rendering:pixelated]"></canvas> 
+      <span>Escape time (iterations before magnitude rose above 2):</span>
+      <div class="flex justify-between ml-2.5 -mb-3 -mr-7">
+        <span>0</span>
+        <span id="escape-time-mid-display"></span>
+        <span id="escape-time-end-display"></span>
+      </div>
+      <canvas id="escape-time-canvas" class="w-full h-10 m-4"></canvas>
+
+      <p>Use <kbd>wasd</kbd> to pan the camera. Use <kbd>i</kbd> and <kbd>o</kbd> to zoom in and out.</p>
+
+      <h2>Settings</h2>
+
+      <label>
+        Overlay (Crosshair, performance and zoom)
+        <input id="overlay-input" type="checkbox" role="switch">
+      </label>
+      <label>
+        Iterations
+        <div class="flex justify-between">
+          <span>0</span>
+          <span>125</span>
+          <span>250</span>
+          <span>375</span>
+          <span>500</span>
+        </div>
+        <input id="iterations-input" type="range" min="0" max="500" value="200">
+      </label>
+      <label>
+        HTML pixels per Argand pixel (high number = lower resolution)
+        <div class="flex justify-between">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+        <input id="ppp-input" type="range" min="1" max="3" value="2">
+      </label>
+      <button onclick="update_params();" class="w-full">Apply settings</button>
+    </div>
+  </div>
+</body>
+</html>
